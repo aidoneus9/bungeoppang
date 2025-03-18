@@ -52,6 +52,14 @@ def admin_mode():
         else: 
             print("올바른 붕어빵의 종류를 입력해 주세요.")           
 ################################
+# 붕어빵 가격
+price = dict(zip(["팥붕어빵", "슈크림붕어빵", "초코붕어빵"], [800, 700, 900]))
+
+def calculate_sales():
+    total_sales = sum(sales[key] * price[key] for key in sales)
+    # total_sales = sum(sales[i] * price[i] for i, _ in zip(sales, price))
+    print(f"오늘의 총 매출 💰: {total_sales}")
+#################################
 # ✔️ 메인 (주문 / 관리자 / 종료 중 선택)
 while True:
     print("주문 | 관리자 | 종료")
@@ -73,4 +81,4 @@ while True:
     elif mode == "관리자":
         admin_mode()
 
-    
+calculate_sales()
